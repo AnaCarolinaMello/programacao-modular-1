@@ -1,8 +1,39 @@
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.Test;
 
 public class DataTest {
+    @Test
+    public void testDiaDaSemanaAntes2024(){
+        Data d1 = new Data(2023, 8, 29);
+        helperDiaDaSemana(d1.diaDaSemana(), "Terça", "antes de 2024");
+    }
+
+    @Test
+    public void testDiaDaSemanaEm2024(){
+        Data d1 = new Data(2024, 1, 1);
+        helperDiaDaSemana(d1.diaDaSemana(), "Segunda", "em 2024");
+    }
+
+    @Test
+    public void testDiaDaSemanaDepois2024(){
+        Data d1 = new Data(2024, 1, 1);
+        helperDiaDaSemana(d1.diaDaSemana(), "Quarta", "depois de 2024");
+    }
+
+    @Test
+    public void testAnoBissexto(){
+        Data d1 = new Data(2024, 12, 12);
+        assertTrue("Deve ser ano bissexto", d1.eAnoBisexto());
+    }
+
+    @Test
+    public void testAnoNaoBissexto(){
+        Data d1 = new Data(2023, 12, 12);
+        assertFalse("Não deve ser ano bissexto", d1.eAnoBisexto());
+    }
+
     @Test
     public void testAvancarDia(){
         Data d1 = new Data(2002, 12, 12);
@@ -34,6 +65,10 @@ public class DataTest {
     }
 
     //Helpers
+    private void helperDiaDaSemana(String diaSemana, String diaSemana2, String message) {
+        assertEquals(diaSemana, diaSemana2, "Verifica se o método diaDaSemana retorna correnamnte " + message);
+    }
+
     private void helperProximoDia(int ano, int mes, int dia, int ano2, int mes2, int dia2, String message) {
         assertTrue(message, ano == ano2 && mes == mes2 && dia == dia2);
     }

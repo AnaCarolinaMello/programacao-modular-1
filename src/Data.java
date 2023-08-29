@@ -87,6 +87,7 @@ class Data {
         int quantDay = 0;
         for (int i = 1; i < month; i++) {
             quantDay+= DIASMESES[i - 1] + i == 2 ? 1 : 0;
+            System.out.println(quantDay);
         }
         return quantDay;
     }
