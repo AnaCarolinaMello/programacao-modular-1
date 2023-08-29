@@ -2,7 +2,7 @@ class Data {
     private int dia;
     private int mes;
     private int ano;
-    private final int[] diasMeses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    private final int[] DIASMESES = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     private final String[] WEEKDAYS = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"};
 
     public Data() {
@@ -30,7 +30,8 @@ class Data {
     }
 
     public int diasNoMes() {
-        return diasMeses[this.mes - 1] + this.mes == 2 && eAnoBisexto() ? 1 : 0;
+        int plusFevBi = this.mes == 2 && eAnoBisexto() ? 1 : 0;
+        return DIASMESES[this.mes - 1] + plusFevBi;
     }
 
     public String diaDaSemana() {
@@ -73,13 +74,19 @@ class Data {
     }
 
     public String porExtenso() {
-        return this.dia + "/" + this.mes + "/" + this.ano;
+        return  String.format("%02d/%02d/%d", this.dia, this.mes, this.ano);
     }
 
+    @Override
+    public String toString() {
+        return porExtenso();
+    }
+
+    // Helper
     private int getDays2024(int month) {
         int quantDay = 0;
         for (int i = 1; i < month; i++) {
-            quantDay+= diasMeses[i - 1] + i == 2 ? 1 : 0;
+            quantDay+= DIASMESES[i - 1] + i == 2 ? 1 : 0;
         }
         return quantDay;
     }

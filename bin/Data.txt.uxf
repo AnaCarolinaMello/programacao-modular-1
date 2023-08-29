@@ -1,0 +1,19 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>130</x><y>130</y><w>590</w><h>270</h></coordinates><panel_attributes>Data
+--
+-dia: int
+-mes: int
+-ano: int
+-DIASMESES: int[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+-WEEKDAYS: String[] = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"}
+--
++Data()
++Data(int ano, int mes, int dia)
++getDia(): int
++getMes(): int
++getAno(): int
++diasNoMes(): int
++diaDaSemana(): String
++eAnoBisexto(): boolean
++proximoDia() void
++porExtenso(): String
+-getDays2024(): int</panel_attributes><additional_attributes></additional_attributes></element></diagram>
