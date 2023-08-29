@@ -18,7 +18,7 @@ public class DataTest {
 
     @Test
     public void testDiaDaSemanaDepois2024(){
-        Data d1 = new Data(2024, 1, 1);
+        Data d1 = new Data(2025, 1, 1);
         helperDiaDaSemana(d1.diaDaSemana(), "Quarta", "depois de 2024");
     }
 

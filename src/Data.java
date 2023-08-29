@@ -48,7 +48,7 @@ class Data {
             dias += getDays2024(this.mes);
         }
         if (this.ano > 2024) {
-            dias += this.dia;
+            dias += this.dia + 1;
             return WEEKDAYS[dia % 7];
         } else {
             dias = dias - this.dia + 5;
