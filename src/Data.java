@@ -44,11 +44,12 @@ class Data {
             return WEEKDAYS[dia % 7];
         }
         int dias = 0;
+        dias += getDays2024(this.mes, this.ano);
         for (int i = 0; i < this.ano - 2024; i++) {
-            dias += getDays2024(this.mes);
         }
         if (this.ano > 2024) {
-            dias += this.dia + 1;
+            dias += this.dia;
+            System.out.println(dias);
             return WEEKDAYS[dia % 7];
         } else {
             dias = dias - this.dia + 5;
@@ -83,7 +84,7 @@ class Data {
     }
 
     // Helper
-    private int getDays2024(int month) {
+    private int getDays2024(int month, int year) {
         int quantDay = 0;
         for (int i = 1; i < month; i++) {
             quantDay+= DIASMESES[i - 1] + i == 2 ? 1 : 0;
